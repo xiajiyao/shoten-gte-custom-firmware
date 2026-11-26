@@ -38,15 +38,9 @@
 ## 文件
 
 - `GTE_ALL_EXP055.bin`：唯一当前推荐测试镜像，32472 字节。
-- `SHA256SUMS`：BIN 的 SHA-256。
 - `manifest.json`：构建时的策略与地址记录。
 - `verification.json`：CPU 验证结果。
 - `release_status.json`：后续用户反馈范围，与构建时的测试状态分开记录。
 
-SHA-256：
-
-```text
-01abe933e35a26572aa3fac63c741d69ae3bda55023a74de35796c9ade94373c
-```
 
 出现持续抽动、撞限位或异常发热时停止使用；USB 回刷取决于接环是否仍能进入更新模式。

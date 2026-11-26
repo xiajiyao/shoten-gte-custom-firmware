@@ -18,24 +18,11 @@ Experimental firmware extension for the SHOTEN GTE Contax G → Sony E autofocus
 
 基本视频对焦曾在 0.53 的上述机身与 G35 组合上获得用户反馈，包括切换目标及录制中缓慢合焦。后续视频功能开发已暂停；本版没有新增视频专用指令，共用运动结束时序仍可能影响视频表现。
 
-## 下载与文件校验
+## 下载与版本说明
 
 所有历史实验版本（0.51–0.55）及其说明见 [GitHub Releases](https://github.com/xiajiyao/shoten-gte-custom-firmware/releases)。**0.51 有已知马达控制缺陷，不建议刷入**；目前推荐试用的是 0.55。每个 Release 都标为实验预发布。
 
-
-当前固件：[GTE_ALL_EXP055.bin](release/v0.55-exp/GTE_ALL_EXP055.bin) · [发布说明](release/v0.55-exp/RELEASE_NOTES.md) · [校验文件](release/v0.55-exp/SHA256SUMS)
-
-固件大小：**32,472 字节**。SHA-256：
-
-```text
-01abe933e35a26572aa3fac63c741d69ae3bda55023a74de35796c9ade94373c
-```
-
-macOS 校验示例（终端进入该文件所在目录）：
-
-```bash
-shasum -a 256 GTE_ALL_EXP055.bin
-```
+当前固件：[GTE_ALL_EXP055.bin](release/v0.55-exp/GTE_ALL_EXP055.bin) · [发布说明](release/v0.55-exp/RELEASE_NOTES.md)
 
 下载 GitHub 仓库里的 BIN 时，请使用文件页面的 **Download raw file**；不要把网页另存为 `.bin`。也可以下载完整发布包后解压。
 

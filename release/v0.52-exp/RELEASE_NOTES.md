@@ -9,6 +9,5 @@
 > 刷入和使用实验固件有设备无法启动、对焦异常或数据损失风险。请自行决定并承担风险；在适用法律允许范围内，作者及发布者不对由此造成的损失承担责任，也不保证可恢复。
 
 固件：`GTE_ALL_EXP052.bin`（31940 字节）  
-SHA-256：`fcda2aa0e30f2644ae20700598967fcff25fd032f77b72fd8dfe4cda82c83cd6`
 
 **回刷条件**：只有接环单独连接电脑后仍出现 DOWNLOAD 盘时，才可按[官方 Ver.04 回刷教程](https://github.com/xiajiyao/shoten-gte-custom-firmware/blob/main/docs/RECOVERY.md)尝试恢复。

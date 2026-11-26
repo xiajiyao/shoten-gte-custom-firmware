@@ -5,6 +5,12 @@ on:
     branches: [main]
     paths:
       - .github/workflows/publish-releases.yml
+      - tools/publish_releases.py
+      - release/v0.51-exp/RELEASE_NOTES.md
+      - release/v0.52-exp/RELEASE_NOTES.md
+      - release/v0.53-exp/RELEASE_NOTES.md
+      - release/v0.54-exp/RELEASE_NOTES.md
+      - release/v0.55-exp/RELEASE_NOTES.md
   workflow_dispatch:
 
 permissions:

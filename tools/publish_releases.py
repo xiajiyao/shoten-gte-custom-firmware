@@ -68,13 +68,15 @@ def main():
                 "prerelease": True,
                 "generate_release_notes": False,
             })
+        elif release["body"] != notes:
+            release = request("PATCH", f"{api}/releases/{release['id']}", token, {"body": notes})
         assets = request("GET", f"{api}/releases/{release['id']}/assets?per_page=100", token)
         if artifact.name not in {asset["name"] for asset in assets}:
             upload_url = f"https://uploads.github.com/repos/{repo}/releases/{release['id']}/assets?{urllib.parse.urlencode({'name': artifact.name})}"
             uploaded = request("POST", upload_url, token, payload, "application/octet-stream")
             if uploaded["size"] != size:
                 raise RuntimeError(f"{tag}: uploaded asset size mismatch")
-        print(f"{tag}: {release['html_url']} ({artifact.name}, {size} bytes, SHA-256 {expected})", flush=True)
+        print(f"{tag}: {release['html_url']} ({artifact.name}, {size} bytes)", flush=True)
 
 
 if __name__ == "__main__":
