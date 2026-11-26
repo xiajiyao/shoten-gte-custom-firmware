@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+vendor/
+src/build/
+src/dist/
+src/baseline/
+history/*/build/
+history/*/dist/
+history/*/profiles.h

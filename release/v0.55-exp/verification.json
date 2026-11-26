@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "check_count": 8208,
+  "lenses": [
+    {
+      "lens": "Biogon 21mm f/2.8",
+      "index": 0,
+      "file_pages": 5,
+      "file_bytes": 2184,
+      "checks": "PASS"
+    },
+    {
+      "lens": "Biogon 28mm f/2.8",
+      "index": 1,
+      "file_pages": 5,
+      "file_bytes": 2184,
+      "checks": "PASS"
+    },
+    {
+      "lens": "Planar 35mm f/2",
+      "index": 2,
+      "file_pages": 5,
+      "file_bytes": 2184,
+      "checks": "PASS"
+    },
+    {
+      "lens": "Planar 45mm f/2",
+      "index": 3,
+      "file_pages": 5,
+      "file_bytes": 2184,
+      "checks": "PASS"
+    },
+    {
+      "lens": "Sonnar 90mm f/2.8",
+      "index": 4,
+      "file_pages": 5,
+      "file_bytes": 2184,
+      "checks": "PASS"
+    },
+    {
+      "lens": "Vario-Sonnar 35-70mm (70mm preset)",
+      "index": 5,
+      "file_pages": 5,
+      "file_bytes": 2184,
+      "checks": "PASS"
+    }
+  ],
+  "image_sha256": "01abe933e35a26572aa3fac63c741d69ae3bda55023a74de35796c9ade94373c",
+  "settled_target_replay": {
+    "prior_054_stop_ticks": 10000,
+    "new_055_stop_ticks": 1200,
+    "nominal_stock_tick_us": 10,
+    "physical_motor_or_camera_timing_measured": false
+  },
+  "drive_policy": {
+    "stock_ceiling": 5040,
+    "maximum_boosted_ceiling": 7056,
+    "previous_053_ceiling": 6300,
+    "ceiling_increase_vs_053_percent": 12,
+    "relative_ceiling_increase_percent": 40,
+    "pwm_period_counts": 8400,
+    "actual_motor_speed_gain_measured": false
+  },
+  "video_af": {
+    "native_identity_retained": true,
+    "new_video_handlers_added": false,
+    "sampled_descriptors_and_static_status_match_053": true,
+    "recording_tested": false,
+    "shared_movement_completion_timing_changes": true
+  },
+  "regressions": {
+    "051_stop_leaves_physical_drive_active": "REPRODUCED",
+    "051_native_position_inconsistent": "REPRODUCED",
+    "051_incorrect_motor_start_state": "REPRODUCED",
+    "052_original_motor_start_stop_and_direction": "PASS"
+  },
+  "hardware_tested": false,
+  "limits": [
+    "peripheral timing and DMA transfers are not modelled",
+    "no camera has consumed these replies",
+    "optical scale and mechanical travel remain uncalibrated",
+    "AF-S and zoom position detection are not implemented"
+  ]
+}

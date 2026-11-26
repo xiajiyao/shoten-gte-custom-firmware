@@ -1,0 +1,38 @@
+{
+  "tag": "v0.55-exp",
+  "camera_version": "0.55",
+  "release_date": "2026-11-26",
+  "release_type": "experimental_prerelease",
+  "artifact": "GTE_ALL_EXP055.bin",
+  "bytes": 32472,
+  "sha256": "01abe933e35a26572aa3fac63c741d69ae3bda55023a74de35796c9ade94373c",
+  "firmware_bytes_changed_for_publication": false,
+  "current_version_acceptance_user_reported": true,
+  "hardware_feedback_scope": {
+    "adapter": "SHOTEN GTE V01.02",
+    "camera": "Sony A7 IV / ILCE-7M4",
+    "camera_firmware": "6.02",
+    "primary_lens": "Planar G35mm f/2",
+    "independent_or_instrumented_055_hardware_test": false
+  },
+  "cpu_verification": {
+    "status": "PASS",
+    "assertion_count": 8208,
+    "four_historical_images_hash_verified": true,
+    "current_image_reproduced_byte_identical": true,
+    "runtime": "CPython 3.12.14",
+    "host_platform": "Linux x86_64",
+    "ziglang": "0.17.1",
+    "unicorn": "2.1.4"
+  },
+  "not_claimed": [
+    "all six lenses hardware tested",
+    "whole-frame AF coverage or accuracy verified",
+    "measured autofocus speed percentage",
+    "measured current or temperature",
+    "full AF-S Scan implementation",
+    "full video AF support",
+    "guaranteed USB recovery"
+  ],
+  "build_time_manifest_note": "manifest.json describes the original build evidence. hardware_tested:false in verification.json describes CPU emulation, not absence of later user reports."
+}

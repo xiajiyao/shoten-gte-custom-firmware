@@ -1,0 +1,72 @@
+{
+  "date_local": "2026-11-26",
+  "kind": "compiled_code_and_control_path_review_not_hardware_benchmark",
+  "boost_window_samples_054": [
+    {
+      "start": 0,
+      "target": 20,
+      "samples": 20,
+      "enhanced": 0,
+      "full_boost": 0
+    },
+    {
+      "start": 0,
+      "target": 40,
+      "samples": 40,
+      "enhanced": 0,
+      "full_boost": 0
+    },
+    {
+      "start": 0,
+      "target": 60,
+      "samples": 60,
+      "enhanced": 0,
+      "full_boost": 0
+    },
+    {
+      "start": 0,
+      "target": 100,
+      "samples": 100,
+      "enhanced": 35,
+      "full_boost": 0
+    },
+    {
+      "start": 0,
+      "target": 140,
+      "samples": 140,
+      "enhanced": 75,
+      "full_boost": 13
+    },
+    {
+      "start": 0,
+      "target": 200,
+      "samples": 200,
+      "enhanced": 135,
+      "full_boost": 73
+    },
+    {
+      "start": 100,
+      "target": 140,
+      "samples": 40,
+      "enhanced": 8,
+      "full_boost": 0
+    }
+  ],
+  "sample_warning": "fixed targets and geometric encoder positions; neither real trajectories nor dwell-time weighted samples",
+  "stable_target_replay": {
+    "position": 198,
+    "target": 200,
+    "prior_054_stop_ticks": 10000,
+    "new_055_stop_ticks": 1200,
+    "nominal_tick_us": 10
+  },
+  "motor_poll_instruction_counts": {
+    "054_idle": 8,
+    "055_idle": 40,
+    "054_travelling_without_due_pid": 45,
+    "055_travelling_without_due_pid": 94
+  },
+  "hardware_speed_gain_measured": false,
+  "hardware_completion_latency_measured": false,
+  "decision": "retain 0.54 drive ceiling; test guarded stable-target completion before further power/control-rate changes"
+}

@@ -1,0 +1,206 @@
+{
+  "artifact": "GTE_ALL_EXP055.bin",
+  "version": "0.55",
+  "status": "experimental_unvalidated_on_hardware",
+  "stock_sha256": "28c30d003a8b2a399cf7c019dfc400dcae751c24dc17bc653f325244a3310c09",
+  "sha256": "01abe933e35a26572aa3fac63c741d69ae3bda55023a74de35796c9ade94373c",
+  "bytes": 32472,
+  "extension_bytes": 16072,
+  "extension_address": "0x8024000",
+  "reserved_ram": [
+    "0x20001000",
+    "0x20001800"
+  ],
+  "patches": [
+    {
+      "file_offset": "0x14",
+      "before": "69020208",
+      "after": "01400208",
+      "reason": "zero extension RAM, then execute original reset"
+    },
+    {
+      "file_offset": "0xb74",
+      "before": "f8b5f14847798679",
+      "after": "dff800f015400208",
+      "reason": "patch_dispatch_entry"
+    },
+    {
+      "file_offset": "0x21c4",
+      "before": "38b504460d460b2c",
+      "after": "dff800f039400208",
+      "reason": "patch_prepare_entry"
+    },
+    {
+      "file_offset": "0x1554",
+      "before": "044a11684a429042",
+      "after": "dff800f095410208",
+      "reason": "patch_drive_limit"
+    },
+    {
+      "file_offset": "0x1ca4",
+      "before": "10b5314800780028",
+      "after": "dff800f05d400208",
+      "reason": "patch_motion_poll_entry"
+    }
+  ],
+  "symbols": {
+    "patch_reset_entry": "0x8024001",
+    "patch_dispatch_entry": "0x8024015",
+    "patch_dispatch": "0x802428b",
+    "patch_prepare_entry": "0x8024039",
+    "patch_prepare": "0x8024709",
+    "patch_motion_poll_entry": "0x802405d",
+    "patch_motion_poll": "0x8024099",
+    "patch_drive_limit": "0x8024195"
+  },
+  "lenses": [
+    {
+      "name": "Biogon 21mm f/2.8",
+      "nominal": 21,
+      "actual": 21.5,
+      "apex": 3,
+      "bfd": 12.1,
+      "pupil_front": 10.7,
+      "diameter": 8.0,
+      "menu": "F2.8",
+      "derived_xpd_mm": 22.8,
+      "file_bytes": 2168
+    },
+    {
+      "name": "Biogon 28mm f/2.8",
+      "nominal": 28,
+      "actual": 28.5,
+      "apex": 3,
+      "bfd": 13.1,
+      "pupil_front": 13.5,
+      "diameter": 9.5,
+      "menu": "F4",
+      "derived_xpd_mm": 26.6,
+      "file_bytes": 2168
+    },
+    {
+      "name": "Planar 35mm f/2",
+      "nominal": 35,
+      "actual": 35.1,
+      "apex": 2,
+      "bfd": 22.6,
+      "pupil_front": 27.7,
+      "diameter": 24.9,
+      "menu": "F5.6",
+      "derived_xpd_mm": 50.3,
+      "file_bytes": 2168
+    },
+    {
+      "name": "Planar 45mm f/2",
+      "nominal": 45,
+      "actual": 46.9,
+      "apex": 2,
+      "bfd": 28.5,
+      "pupil_front": 25.0,
+      "diameter": 27.0,
+      "menu": "F8",
+      "derived_xpd_mm": 53.5,
+      "file_bytes": 2168
+    },
+    {
+      "name": "Sonnar 90mm f/2.8",
+      "nominal": 90,
+      "actual": 90.0,
+      "apex": 3,
+      "bfd": 43.7,
+      "pupil_front": 22.0,
+      "diameter": 23.5,
+      "menu": "F11",
+      "derived_xpd_mm": 65.7,
+      "file_bytes": 2168
+    },
+    {
+      "name": "Vario-Sonnar 35-70mm (70mm preset)",
+      "nominal": 70,
+      "actual": 68.2,
+      "apex": 5,
+      "bfd": 35.9,
+      "pupil_front": 10.6,
+      "diameter": 8.0,
+      "menu": "F16",
+      "derived_xpd_mm": 46.5,
+      "file_bytes": 2168
+    }
+  ],
+  "compiler": "python3 -m ziglang",
+  "assumptions": [
+    "GTE .04 exact stock layout",
+    "STM32F4-compatible SRAM covers reserved area",
+    "unmeasured mechanical extension 4.5mm",
+    "EA9 empirical type0 scale 15; flat vignetting rows",
+    "zoom preset corresponds to 70mm only"
+  ],
+  "claims": {
+    "compiled": true,
+    "hardware_flash_tested": false,
+    "full_area_af_verified": false,
+    "af_accuracy_improved_verified": false,
+    "af_s_supported": false,
+    "two_second_auto_return_implemented": false,
+    "drive_ceiling_increased": true,
+    "motor_speed_increase_measured": false
+  },
+  "changes_from_054": [
+    "retain the exact 0.54 drive limit and taper; no additional increase in peak drive",
+    "complete a normal AF move after repeated stable in-tolerance position observations, followed by the original physical stop",
+    "require target error within 3 counts, drift from anchor within 1 count, at least 8 observations and 1200 stock timer ticks",
+    "observations are spaced at least 100 ticks; a gap over 400 ticks, target change, drift or leaving tolerance resets the window",
+    "retain original homing, shutdown, stall and travel-limit checks; no timed return to infinity",
+    "video AF identity, capabilities and instruction handlers retained; shared movement completion timing can change"
+  ],
+  "settled_completion_policy": {
+    "stock_timer_tick_us_nominal": 10,
+    "minimum_settle_ticks": 1200,
+    "minimum_settle_ms_nominal": 12,
+    "target_tolerance_counts": 3,
+    "anchor_drift_limit_counts": 1,
+    "minimum_observations": 8,
+    "minimum_observation_interval_ticks": 100,
+    "maximum_observation_gap_ticks": 400,
+    "original_stall_watchdog_retained": true,
+    "actual_latency_gain_measured": false
+  },
+  "drive_policy": {
+    "stock_ceiling": 5040,
+    "previous_053_ceiling": 6300,
+    "maximum_boosted_ceiling": 7056,
+    "pwm_period_counts": 8400,
+    "relative_ceiling_increase_percent": 40,
+    "ceiling_increase_vs_053_percent": 12,
+    "stock_nominal_duty_percent": 60,
+    "previous_053_nominal_duty_percent": 75,
+    "boosted_nominal_duty_percent": 84,
+    "no_boost_within_counts": 32,
+    "full_boost_at_counts": 64,
+    "measured_speed_gain": null
+  },
+  "video_af_status": {
+    "native_device_class_already_present_in_052": true,
+    "new_video_focus_instruction_handlers_added": false,
+    "continuous_drive_3c_advertised": false,
+    "scan_1f_advertised": false,
+    "video_focus_instruction_handlers_changed_from_053": false,
+    "shared_movement_completion_timing_changed": true,
+    "further_video_af_work_paused_by_user": true,
+    "previous_053_basic_recording_focus_user_reported": true,
+    "055_video_recording_tested": false,
+    "shared_movement_completion_may_affect_movie_focus_motion": true
+  },
+  "user_reported_prior_hardware_observations": [
+    "user reported 0.52 test successful",
+    "user reported 0.53 faster focus and target switching, including slow refocus during REC",
+    "user could not confirm further speed improvement with 0.54 and requested bottleneck review",
+    "user cancelled automatic return, paused video AF work and requested another speed increase"
+  ],
+  "not_yet_verified": [
+    "actual 0.55 focus completion latency, settling, overshoot, current and temperature",
+    "the new drive policy with every physical lens and target distance",
+    "actual 0.55 update and recovery behavior"
+  ],
+  "publication_note": "Compiler executable path normalized for publication. Build-time claims are retained; see release_status.json for later user feedback."
+}
