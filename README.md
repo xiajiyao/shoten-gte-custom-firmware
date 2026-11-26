@@ -20,6 +20,9 @@ Experimental firmware extension for the SHOTEN GTE Contax G → Sony E autofocus
 
 ## 下载与文件校验
 
+所有历史实验版本（0.51–0.55）及其说明见 [GitHub Releases](https://github.com/xiajiyao/shoten-gte-custom-firmware/releases)。**0.51 有已知马达控制缺陷，不建议刷入**；目前推荐试用的是 0.55。每个 Release 都标为实验预发布。
+
+
 当前固件：[GTE_ALL_EXP055.bin](release/v0.55-exp/GTE_ALL_EXP055.bin) · [发布说明](release/v0.55-exp/RELEASE_NOTES.md) · [校验文件](release/v0.55-exp/SHA256SUMS)
 
 固件大小：**32,472 字节**。SHA-256：
